@@ -3,274 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Course Landing Page</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Live Girl Voice Call & Chat</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
         body {
-            background-color: #11161a;
+            background-color: #1a092b;
             color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
-
         .container {
-            max-width: 480px;
-            width: 100%;
-            background: #17212b;
-            border-radius: 24px;
+            background-color: #2a1147;
+            border-radius: 20px;
             padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Profile/Logo Section */
-        .logo-container {
-            margin-bottom: 15px;
-        }
-
-        .logo-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid #2ecc71;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #0f141c;
-            overflow: hidden;
-        }
-
-        .logo-circle img {
+            max-width: 400px;
             width: 100%;
-            height: 100%;
+            text-align: center;
+            box-shadow: 0 4px 25px rgba(236, 72, 153, 0.25);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+        }
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid #ec4899;
             object-fit: cover;
-        }
-
-        /* Headings */
-        h1 {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 1px;
             margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
         }
-
-        h1 span {
-            color: #2ecc71;
+        h1 {
+            color: #ff75c3;
+            font-size: 24px;
+            margin: 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-
-        /* Subtitle Features */
-        .sub-features {
-            list-style: none;
-            margin-bottom: 25px;
+        .subtitle {
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: #f472b6;
+            margin-bottom: 10px;
         }
-
-        .sub-features li {
+        .tagline {
+            color: #cbd5e1;
             font-size: 14px;
-            margin-bottom: 8px;
-            color: #e0e0e0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Main Telegram Button */
-        .btn-main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            background: #2ecc71;
-            color: #11161a;
-            text-decoration: none;
-            padding: 14px 20px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 16px;
-            letter-spacing: 0.5px;
             margin-bottom: 25px;
-            box-shadow: 0px 4px 15px rgba(46, 204, 113, 0.3);
-            transition: transform 0.2s, background 0.2s;
         }
-
-        .btn-main:hover {
-            background: #27ae60;
+        
+        /* Call Button Style */
+        .btn {
+            display: block;
+            background: linear-gradient(45deg, #ec4899, #8b5cf6);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 16px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-size: 17px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+        }
+        .btn:hover {
+            opacity: 0.9;
             transform: translateY(-2px);
         }
-
-        /* Features List Card */
-        .features-card {
-            background: #1c2733;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: left;
-            margin-bottom: 25px;
+        
+        /* Call Loading State */
+        .btn.loading {
+            background: #eab308 !important;
+            color: #000000;
+            animation: pulse 1s infinite alternate;
         }
 
-        .features-card ul {
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .badge-box {
+            background-color: rgba(236, 72, 153, 0.1);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #f472b6;
+        }
+        .features-list {
+            text-align: left;
+            margin: 20px 0;
+            padding: 0 15px;
             list-style: none;
         }
-
-        .features-card li {
+        .features-list li {
+            margin-bottom: 12px;
             font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 14px;
             display: flex;
             align-items: center;
-            gap: 12px;
         }
-
-        .features-card li:last-child {
-            margin-bottom: 0;
+        .features-list li::before {
+            content: "💖";
+            margin-right: 12px;
+            font-size: 14px;
         }
-
-        .check-icon {
-            background: #2ecc71;
-            color: #1c2733;
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
+        .notice {
+            color: #ff75c3;
+            font-size: 14px;
+            margin: 15px 0 5px 0;
             font-weight: bold;
         }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 25px;
+        .sub-text {
+            color: #94a3b8;
+            font-size: 12px;
+            margin-bottom: 5px;
         }
-
-        .stat-box {
-            background: #1c2733;
-            padding: 12px 5px;
-            border-radius: 12px;
-        }
-
-        .stat-box h3 {
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .stat-box h3.green-text {
-            color: #2ecc71;
-        }
-
-        .stat-box p {
+        .risk-disclaimer {
+            color: #64748b;
             font-size: 11px;
-            color: #9aa0a6;
-            margin-top: 2px;
+            margin-top: 15px;
         }
-
-        /* Footer Disclaimer */
-        .disclaimer {
-            font-size: 10px;
-            color: #7f8c8d;
-            line-height: 1.5;
-            padding: 0 10px;
+        footer {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #64748b;
         }
-
-        .disclaimer strong {
-            color: #f1c40f;
+        footer a {
+            color: #ec4899;
+            text-decoration: underline;
         }
     </style>
-
-    <!-- Facebook Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1484608360087114');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1484608360087114&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Facebook Pixel Code -->
 </head>
 <body>
 
-    <div class="container">
-        
-        <!-- Logo Section -->
-        <div class="logo-container">
-            <div class="logo-circle">
-                <img src="https://i.ibb.co/Gvxxypz8/Uj4m-Oneh2i-NGe-UE4-IMRA8d-Qz-Hn-Vclt-Dgx8xc2-bb-Lxg-A0-Epc-IHq74i-IGwqi-QWS3-YQyowu-Ewy-ERTXo-VGquvf6.jpg" alt="Logo">
-            </div>
-        </div>
+<div class="container">
+    <!-- Profile Image -->
+    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Live Girl Call" class="profile-img">
 
-        <!-- Heading -->
-        <h1>PANKAJ <span>BHARDWAJ</span></h1>
+    <h1>Priya Sharma</h1>
+    <div class="subtitle">LIVE VOICE CALL • VIDEO CHAT</div>
+    <div class="tagline">Talk & Chat With Me 24/7 Online</div>
 
-        <!-- Subheading Features -->
-        <ul class="sub-features">
-            <li>📈 Daily Market Updates</li>
-            <li>🔥 NIFTY • BANKNIFTY Analysis</li>
-            <li>💰 Smart Trading Community</li>
-        </ul>
+    <!-- Call Connect Button -->
+    <button class="btn" onclick="connectSignal(this, 'YOUR_TELEGRAM_LINK_HERE')">📞 Start Private Call Now</button>
 
-        <!-- Main Call to Action Button -->
-        <a href="https://t.me/+BC4O5gTTn4VmMWU1" class="btn-main">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            JOIN TELEGRAM NOW
-        </a>
-
-        <!-- Features Card -->
-        <div class="features-card">
-            <ul>
-                <li><span class="check-icon">✓</span> Daily Trading Signals</li>
-                <li><span class="check-icon">✓</span> Market Learning & Analysis</li>
-                <li><span class="check-icon">✓</span> Live Trading Updates</li>
-                <li><span class="check-icon">✓</span> Beginner Friendly Community</li>
-            </ul>
-        </div>
-
-        <!-- Stats Grid -->
-        <div class="stats-grid">
-            <div class="stat-box">
-                <h3 class="green-text">50K+</h3>
-                <p>Members</p>
-            </div>
-            <div class="stat-box">
-                <h3 class="green-text">24/7</h3>
-                <p>Updates</p>
-            </div>
-            <div class="stat-box">
-                <h3 class="green-text">95%</h3>
-                <p>Analysis</p>
-            </div>
-        </div>
-
-        <!-- Disclaimer -->
-        <p class="disclaimer">
-            <strong>⚠️ Stock Market Investments Are Subject To Market Risks.</strong><br>
-            Disclaimer: Educational Purpose Only. Not SEBI Registered.
-        </p>
-
+    <!-- Trusted Badge -->
+    <div class="badge-box">
+        <div>🟢 Currently Online & Available</div>
+        <div style="margin-top: 5px;">⭐ 10,000+ Happy Callers</div>
     </div>
+
+    <!-- Features List -->
+    <ul class="features-list">
+        <li>100% Private & Confidential Call</li>
+        <li>HD High-Quality Voice & Video</li>
+        <li>Instant Connection (No Wait Time)</li>
+        <li>Friendly & Sweet Talking</li>
+    </ul>
+
+    <div class="notice">🔥 Only Few Spots Left Today</div>
+    <div class="sub-text">💬 Join Group for Live Updates</div>
+    <div class="risk-disclaimer">⚠️ Only 18+ Allowed • Respectful Behavior Required</div>
+
+    <!-- Footer Section -->
+    <footer>
+        Powered by <a href="https://t.me/+mqNI-rk7y284M2Fl">AI ADS AGENCY</a>
+    </footer>
+</div>
+
+<script>
+    // Call Connect Function
+    function connectSignal(button, url) {
+        button.innerText = "📲 CONNECTING CALL...";
+        button.classList.add('loading');
+        button.disabled = true;
+
+        setTimeout(function() {
+            button.innerText = "✅ CALL CONNECTED!";
+            window.location.href = url;
+            
+            setTimeout(function() {
+                button.innerText = "📞 Start Private Call Now";
+                button.classList.remove('loading');
+                button.disabled = false;
+            }, 2000);
+            
+        }, 1500); 
+    }
+</script>
 
 </body>
 </html>
