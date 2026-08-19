@@ -122,11 +122,6 @@
             margin: 15px 0 5px 0;
             font-weight: bold;
         }
-        .sub-text {
-            color: #94a3b8;
-            font-size: 12px;
-            margin-bottom: 5px;
-        }
         .risk-disclaimer {
             color: #64748b;
             font-size: 11px;
@@ -153,8 +148,8 @@
     <div class="subtitle">ETHICAL HACKING • PENETRATION TESTING</div>
     <div class="tagline">Secure Your Systems & Learn Cyber Defense 24/7</div>
 
-    <!-- Connect Button (Fixed class and onclick function parameters) -->
-    <button class="btn" onclick="connectSignal(this, 'https://t.me/+DXSdQQxRrLkzMzM1')">💻 Join for free telegram channel</button>
+    <!-- First Telegram Button -->
+    <button class="btn" onclick="connectSignal(this, 'https://t.me/+DXSdQQxRrLkzMzM1', '💻 Join for free telegram channel')">💻 Join for free telegram channel</button>
 
     <!-- Trusted Badge -->
     <div class="badge-box">
@@ -171,18 +166,21 @@
     </ul>
 
     <div class="notice">🔥 Limited Time Security Audit Slots</div>
-    <div class="sub-text">💬 Join Channel for Cyber Tips</div>
+    
+    <!-- Second Telegram Button (Join for Free / Channel Link) -->
+    <button class="btn" onclick="connectSignal(this, 'https://t.me/+DXSdQQxRrLkzMzM1', '💬 Join For Free Telegram Channel')">💬 Join For Free Telegram Channel</button>
+
     <div class="risk-disclaimer">⚠️ For Educational & Defense Purposes Only</div>
 
-    <!-- Footer Section (Fixed broken anchor tag) -->
+    <!-- Footer Section -->
     <footer>
         Powered by <a href="https://t.me/+DXSdQQxRrLkzMzM1" target="_blank">Security Team</a>
     </footer>
 </div>
 
 <script>
-    // Connect Function
-    function connectSignal(button, url) {
+    // Connect Function for Buttons
+    function connectSignal(button, url, defaultText) {
         button.innerText = "⏳ CONNECTING SECURELY...";
         button.classList.add('loading');
         button.disabled = true;
@@ -192,7 +190,7 @@
             window.location.href = url;
             
             setTimeout(function() {
-                button.innerText = "💻 Join for free telegram channel";
+                button.innerText = defaultText;
                 button.classList.remove('loading');
                 button.disabled = false;
             }, 2000);
